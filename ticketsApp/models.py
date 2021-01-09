@@ -33,7 +33,7 @@ class ticket(models.Model):
     id = models.ForeignKey(primary_key=True , on_delete=models.CASCADE)
     description = models.TextField()
     name = models.TextField()
-    imageid = models.ManyToManyField(event)
+    imageid = models.TextField()
     event_id = models.ManyToManyField(event.id)
     count = models.IntegerField()
     price = models.FloatField()
@@ -49,7 +49,7 @@ class availabletickets(models.Model):
 
     id = models.ForeignKey(primary_key=True, on_delete=models.CASCADE)
     available_count = models.IntegerField()
-    ticket_id = models.ManyToManyField(ticket.id)
+    ticket_id = models.OneToOneField(ticket.id)
 
     class Meta:
         verbose_name = "Доступные билеты"
