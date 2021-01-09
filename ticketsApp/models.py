@@ -9,7 +9,7 @@ class event(models.Model):
     This is model for events table
     """
 
-    id = models.ForeignKey(primary_key=True, on_delete=models.CASCADE)
+    id = models.IntegerField(primary_key=True)
     description = models.TextField()
     locationdescription = models.TextField()
     latitude = models.DecimalField(max_digits=8, decimal_places=3)
@@ -30,11 +30,11 @@ class ticket(models.Model):
     This is model for tickets table
     """
 
-    id = models.ForeignKey(primary_key=True , on_delete=models.CASCADE)
+    id = models.IntegerField(primary_key=True)
     description = models.TextField()
     name = models.TextField()
     imageid = models.TextField()
-    event_id = models.ManyToManyField(event.id)
+    event_id = models.OneToOneField(event, on_delete=models.CASCADE)
     count = models.IntegerField()
     price = models.FloatField()
 
@@ -47,9 +47,9 @@ class availabletickets(models.Model):
     This is model for available tickets table
     """
 
-    id = models.ForeignKey(primary_key=True, on_delete=models.CASCADE)
+    id = models.IntegerField(primary_key=True)
     available_count = models.IntegerField()
-    ticket_id = models.OneToOneField(ticket.id)
+    ticket_id = models.OneToOneField(ticket, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Доступные билеты"
@@ -60,7 +60,7 @@ class userregistrationinfo(models.Model):
     This is model for user registration info table
     """
 
-    id = models.ForeignKey(primary_key=True, on_delete=models.CASCADE)
+    id = models.IntegerField(primary_key=True)
     email = models.EmailField()
     phone = models.TextField()
     password = models.CharField(max_length=50)
@@ -75,9 +75,9 @@ class usersessions(models.Model):
     This is model for user sessions table
     """
 
-    id = models.ForeignKey(primary_key=True, on_delete=models.CASCADE)
-    user_id = models.ManyToManyField(userregistrationinfo.id)
-    ticket_id = models.ManyToManyField(ticket.id)
+    id = models.IntegerField(primary_key=True)
+    user_id = models.OneToOneField(userregistrationinfo, on_delete=models.CASCADE)
+    ticket_id = models.OneToOneField(ticket, on_delete=models.CASCADE)
     opened_at = models.DateTimeField(auto_now=True, auto_created=True)
     status = models.BooleanField()
 
@@ -90,10 +90,10 @@ class usertickets(models.Model):
     This is model for user tickets table
     """
 
-    user_tickets_id = models.ForeignKey(primary_key=True, on_delete=models.CASCADE)
+    user_tickets_id = models.IntegerField(primary_key=True)
     purchare_date = models.DateField(auto_created=True, auto_now=True)
-    user_id = models.ManyToManyField(usersessions.user_id)
-    ticket_id = models.ManyToManyField(ticket.id)
+    user_id = models.OneToOneField(usersessions, on_delete=models.CASCADE)
+    ticket_id = models.OneToOneField(ticket, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Пользовательский билет"
