@@ -14,7 +14,7 @@ class events(APIView):
     def get(self, request):
         events = event.objects.all()
         serializer = eventSerializers(events, many=True)
-        return Response(serializer.data.data)
+        return Response(serializer.data)
 
 class tickets(APIView):
     """
@@ -23,8 +23,8 @@ class tickets(APIView):
 
     def get(self, request):
         tickets = ticket.objects.all()
-        serializer = eventSerializers(tickets, many=True)
-        return Response(serializer.data.data)
+        serializer = ticketSerializers(tickets, many=True)
+        return Response(serializer.data)
 
 class availableticketss(APIView):
     """
@@ -33,8 +33,8 @@ class availableticketss(APIView):
 
     def get(self, request):
         availableticket = availabletickets.objects.all()
-        serializer = eventSerializers(availableticket, many=True)
-        return Response(serializer.data.data)
+        serializer = availableticketsSerializers(availableticket, many=True)
+        return Response(serializer.data)
 
 class userregistrationinfos(APIView):
     """
@@ -43,8 +43,8 @@ class userregistrationinfos(APIView):
 
     def get(self, request):
         userregistrationinfos = userregistrationinfo.objects.all()
-        serializer = eventSerializers(userregistrationinfos, many=True)
-        return Response(serializer.data.data)
+        serializer = userregistrationinfoSerializers(userregistrationinfos, many=True)
+        return Response(serializer.data)
 
 class usersessionss(APIView):
     """
@@ -53,8 +53,8 @@ class usersessionss(APIView):
 
     def get(self, request):
         usersession = usersessions.objects.all()
-        serializer = eventSerializers(usersession, many=True)
-        return Response(serializer.data.data)
+        serializer = usersessionsSerializers(usersession, many=True)
+        return Response(serializer.data)
 
 class userticketss(APIView):
     """
@@ -63,6 +63,6 @@ class userticketss(APIView):
 
     def get(self, request):
         userticket = usertickets.objects.all()
-        serializer = eventSerializers(userticket, many=True)
-        return Response(serializer.data.data)
+        serializer = userticketsSerializers(userticket, many=True)
+        return Response(serializer.data)
 
