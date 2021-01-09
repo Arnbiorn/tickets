@@ -6,4 +6,4 @@ This is our university project to create our own webservice by team.
 Project of a web service for buying and booking tickets for various events.
 
 1. Необходимо установить все необходимые библиотеки с помощью команды: "pip install -r req.txt"
-2. 
+2. Для запуска сервера необходимо прописать команду "python manage.py runserver 8000"
