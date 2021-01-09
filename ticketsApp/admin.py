@@ -8,7 +8,6 @@ class eventAdmin(admin.ModelAdmin):
     """
 
     list_display = (
-        "id",
         "description",
         "locationdescription",
         "latitude",
