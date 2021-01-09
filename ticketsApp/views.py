@@ -6,7 +6,7 @@ from rest_framework import permissions
 from ticketsApp.models import *
 from ticketsApp.serializers import *
 
-class event(APIView):
+class events(APIView):
     """
     Event table api
     """
@@ -16,7 +16,7 @@ class event(APIView):
         serializer = eventSerializers(events, many=True)
         return Response(serializer.data.data)
 
-class ticket(APIView):
+class tickets(APIView):
     """
     Ticket table api
     """
@@ -26,7 +26,7 @@ class ticket(APIView):
         serializer = eventSerializers(tickets, many=True)
         return Response(serializer.data.data)
 
-class availabletickets(APIView):
+class availableticketss(APIView):
     """
     Available tickets table api
     """
@@ -36,7 +36,7 @@ class availabletickets(APIView):
         serializer = eventSerializers(availableticket, many=True)
         return Response(serializer.data.data)
 
-class userregistrationinfo(APIView):
+class userregistrationinfos(APIView):
     """
     User registration info table api
     """
@@ -46,7 +46,7 @@ class userregistrationinfo(APIView):
         serializer = eventSerializers(userregistrationinfos, many=True)
         return Response(serializer.data.data)
 
-class usersessions(APIView):
+class usersessionss(APIView):
     """
     User sessions table api
     """
@@ -56,7 +56,7 @@ class usersessions(APIView):
         serializer = eventSerializers(usersession, many=True)
         return Response(serializer.data.data)
 
-class usertickets(APIView):
+class userticketss(APIView):
     """
     User tickets table api
     """

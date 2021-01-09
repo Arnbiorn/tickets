@@ -11,6 +11,7 @@ class eventSerializers(serializers.ModelSerializer):
     class Meta:
         model = event
         fields = (
+            "id",
             "description",
             "locationdescription",
             "latitude",
@@ -18,8 +19,7 @@ class eventSerializers(serializers.ModelSerializer):
             "name",
             "eventdate",
             "genre",
-            "min_age",
-            "imageid"
+            "min_age"
         )
 
 class ticketSerializers(serializers.ModelSerializer):

@@ -15,8 +15,7 @@ class eventAdmin(admin.ModelAdmin):
         "name",
         "eventdate",
         "genre",
-        "min_age",
-        "imageid"
+        "min_age"
     )
 
 class ticketAdmin(admin.ModelAdmin):
@@ -26,7 +25,6 @@ class ticketAdmin(admin.ModelAdmin):
     """
 
     list_display = (
-        "id",
         "description",
         "name",
         "imageid",
@@ -42,7 +40,7 @@ class availableticketsAdmin(admin.ModelAdmin):
     """
 
     list_display = (
-        "id",
+        #"id",
         "available_count",
         "ticket_id"
     )
@@ -54,7 +52,6 @@ class userregistrationinfoAdmin(admin.ModelAdmin):
     """
 
     list_display = (
-        "id",
         "email",
         "phone",
         "password",
@@ -68,7 +65,6 @@ class usersessionsAdmin(admin.ModelAdmin):
     """
 
     list_display = (
-        "id",
         "user_id",
         "ticket_id",
         "opened_at",
@@ -82,7 +78,6 @@ class userticketsAdmin(admin.ModelAdmin):
     """
 
     list_display = (
-        "user_tickets_id",
         "purchare_date",
         "user_id",
         "ticket_id"
