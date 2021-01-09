@@ -64,6 +64,7 @@ class userregistrationinfo(models.Model):
     email = models.EmailField()
     phone = models.TextField()
     password = models.CharField(max_length=50)
+    user_role = models.TextField()
 
     class Meta:
         verbose_name = "Информация о полдьзователе"
