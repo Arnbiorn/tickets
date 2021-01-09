@@ -9,7 +9,7 @@ class event(models.Model):
     This is model for events table
     """
 
-    id = models.IntegerField(primary_key=True, blank=False)
+    #id = models.IntegerField(primary_key=True, blank=False)
     description = models.TextField()
     locationdescription = models.TextField()
     latitude = models.DecimalField(max_digits=8, decimal_places=3)
@@ -31,7 +31,7 @@ class ticket(models.Model):
     This is model for tickets table
     """
 
-    id = models.IntegerField(primary_key=True, blank=False)
+    #id = models.IntegerField(primary_key=True, blank=False)
     description = models.TextField()
     name = models.TextField()
     imageid = models.TextField(blank=True, null=True)
@@ -49,7 +49,7 @@ class availabletickets(models.Model):
     This is model for available tickets table
     """
 
-    id = models.IntegerField(primary_key=True, blank=False)
+    #id = models.IntegerField(primary_key=True, blank=False)
     available_count = models.IntegerField()
     ticket_id = models.OneToOneField(ticket, on_delete=models.CASCADE)
 
@@ -63,7 +63,7 @@ class userregistrationinfo(models.Model):
     This is model for user registration info table
     """
 
-    id = models.IntegerField(primary_key=True, blank=False)
+    #id = models.IntegerField(primary_key=True, blank=False)
     email = models.EmailField()
     phone = models.TextField()
     password = models.CharField(max_length=50)
@@ -76,11 +76,11 @@ class userregistrationinfo(models.Model):
 class usersessions(models.Model):
 
     """
-    This is model for user sessions table
+    This is model for user sessions table check
     """
 
-    id = models.IntegerField(primary_key=True, blank=False)
-    user_id = models.IntegerField()
+    #id = models.IntegerField(primary_key=True, blank=False)
+    user_id = models.IntegerField(blank=False)
     ticket_id = models.OneToOneField(ticket, on_delete=models.CASCADE)
     opened_at = models.DateTimeField(auto_now=True, auto_created=True)
     status = models.BooleanField()
@@ -102,4 +102,4 @@ class usertickets(models.Model):
 
     class Meta:
         verbose_name = "Пользовательский билет"
-        verbose_name_plural = "ользовательский билет"
+        verbose_name_plural = "Пользовательский билет"
