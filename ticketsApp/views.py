@@ -7,9 +7,13 @@ from ticketsApp.models import *
 from ticketsApp.serializers import *
 
 class events(APIView):
+
     """
     Event table api
     """
+
+    #permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
     def get(self, request):
         events = event.objects.all()
@@ -17,9 +21,13 @@ class events(APIView):
         return Response(serializer.data)
 
 class tickets(APIView):
+
     """
     Ticket table api
     """
+
+    #permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
     def get(self, request):
         tickets = ticket.objects.all()
@@ -27,9 +35,13 @@ class tickets(APIView):
         return Response(serializer.data)
 
 class availableticketss(APIView):
+
     """
     Available tickets table api
     """
+
+    #permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
     def get(self, request):
         availableticket = availabletickets.objects.all()
@@ -37,9 +49,13 @@ class availableticketss(APIView):
         return Response(serializer.data)
 
 class userregistrationinfos(APIView):
+
     """
     User registration info table api
     """
+
+    #permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
     def get(self, request):
         userregistrationinfos = userregistrationinfo.objects.all()
@@ -47,9 +63,13 @@ class userregistrationinfos(APIView):
         return Response(serializer.data)
 
 class usersessionss(APIView):
+
     """
     User sessions table api
     """
+
+    #permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
     def get(self, request):
         usersession = usersessions.objects.all()
@@ -57,9 +77,13 @@ class usersessionss(APIView):
         return Response(serializer.data)
 
 class userticketss(APIView):
+
     """
     User tickets table api
     """
+
+    #permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
     def get(self, request):
         userticket = usertickets.objects.all()
